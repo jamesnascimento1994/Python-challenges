@@ -50,13 +50,27 @@
 # Note: for this kata y isn't considered a vowel.
 # Challenge Source: https://www.codewars.com/kata/52fba66badcd10859f00097e/python
 
-def disemvowel(string):
-    output = []
-    for char in string:
-        if char not in "aeiouAEIOU":
-            output.extend(char)
-    return "".join(output)
+# def disemvowel(string):
+#     output = []
+#     for char in string:
+#         if char not in "aeiouAEIOU":
+#             output.extend(char)
+#     return "".join(output)
 
-# TESTS
-print(disemvowel("This website is for losers! LOL"))
-print(disemvowel("Do you like biscuits?"))
+# # TESTS
+# print(disemvowel("This website is for losers! LOL"))
+# print(disemvowel("Do you like biscuits?"))
+
+# Challenge Five: Define a method hello that returns "Hello, Name!" to a given name, or says Hello, World! if name is not given (or passed as an empty String). Assuming that name is a String and it checks for user typos to return a name with a first capital letter (Xxxx).
+# Challenge Source: https://www.codewars.com/kata/57e3f79c9cb119374600046b/python
+
+# def hello(name):
+#     if (type(name) == "Undefined" or len(name) == 0):
+#         return "Hello, World!"
+#     else:
+#         return f"Hello, {name[0].upper()}{name[1:].lower()}!"
+
+# # TESTS
+# print(hello("james"))
+# print(hello(""))
+# print(hello("nAoMi"))
