@@ -61,16 +61,18 @@
 # print(disemvowel("This website is for losers! LOL"))
 # print(disemvowel("Do you like biscuits?"))
 
-# Challenge Five: Define a method hello that returns "Hello, Name!" to a given name, or says Hello, World! if name is not given (or passed as an empty String). Assuming that name is a String and it checks for user typos to return a name with a first capital letter (Xxxx).
-# Challenge Source: https://www.codewars.com/kata/57e3f79c9cb119374600046b/python
+# Challenge Five: When it's spring Japanese cherries blossom, it's called "sakura" and it's admired a lot. The petals start to fall in late April. Suppose that the falling speed of a petal is 5 centimeters per second (5 cm/s), and it takes 80 seconds for the petal to reach the ground from a certain branch. Write a function that receives the speed (in cm/s) of a petal as input, and returns the time it takes for that petal to reach the ground from the same branch.
+# Challenge Source: https://www.codewars.com/kata/5a0be7ea8ba914fc9c00006b/python
 
-# def hello(name):
-#     if (type(name) == "Undefined" or len(name) == 0):
-#         return "Hello, World!"
+# def sakura_fall(v):
+#     distance_fell = 400
+#     if v > 0:
+#         how_many_seconds = distance_fell / v
+#         return how_many_seconds
 #     else:
-#         return f"Hello, {name[0].upper()}{name[1:].lower()}!"
+#         return 0
 
 # # TESTS
-# print(hello("james"))
-# print(hello(""))
-# print(hello("nAoMi"))
+# print(sakura_fall(5))
+# print(sakura_fall(8))
+# print(sakura_fall(-7))
