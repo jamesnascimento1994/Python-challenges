@@ -76,3 +76,17 @@
 # print(sakura_fall(5))
 # print(sakura_fall(8))
 # print(sakura_fall(-7))
+
+# Challenge Six: Define a method hello that returns "Hello, Name!" to a given name, or says Hello, World! if name is not given (or passed as an empty String). Assuming that name is a String and it checks for user typos to return a name with a first capital letter(Xxxx).
+# Challenge Source: https://www.codewars.com/kata/57e3f79c9cb119374600046b/python
+
+# def hello(name=""):
+#     if name:
+#         return 'Hello, ' + name[0:1].upper() + name[1:].lower() + '!'
+#     else:
+#         return "Hello, World!"
+    
+# # TESTS
+# print(hello("jameS"))
+# print(hello())
+# print(hello(""))
