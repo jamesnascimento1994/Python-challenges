@@ -112,3 +112,28 @@
 # # TESTS
 # print(delete_nth([1, 1, 1, 1], 2))
 # print(delete_nth([20, 37, 20, 21], 1))
+
+# Challenge Eight: You live in the city of Cartesia where all roads are laid out in a perfect grid. You arrived ten minutes too early to an appointment, so you decided to take the opportunity to go for a short walk. The city provides its citizens with a Walk Generating App on their phones -- everytime you press the button it sends you an array of one-letter strings representing directions to walk (eg. ['n', 's', 'w', 'e']). You always walk only a single block for each letter (direction) and you know it takes you one minute to traverse one city block, so create a function that will return true if the walk the app gives you will take you exactly ten minutes (you don't want to be early or late!) and will, of course, return you to your starting point. Return false otherwise.
+# Challenge Source: https://www.codewars.com/kata/54da539698b8a2ad76000228/python
+
+# def is_valid_walk(walk):
+#     ns = 0
+#     we = 0
+#     for dir in walk:
+#         if dir == 'n':
+#             ns += 1
+#         if dir == 's':
+#             ns -= 1
+#         if dir == 'w':
+#             we += 1
+#         if dir == 'e':
+#             we -= 1
+#     if ns == 0 and we == 0 and len(walk) == 10:
+#         return True
+#     else:
+#         return False
+
+# print(is_valid_walk(['n','s','n','s','n','s','n','s','n','s']))
+# print(is_valid_walk(['w', 'e', 'w', 'e', 'w', 'e', 'w', 'e', 'w', 'e', 'w', 'e']))
+# print(is_valid_walk('w'))
+# print(is_valid_walk(['n', 'n', 'n', 's', 'n', 's', 'n', 's', 'n', 's']))
