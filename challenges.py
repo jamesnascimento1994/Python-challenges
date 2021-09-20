@@ -39,6 +39,7 @@
 #     fstr = re.sub('WUB', ' ', song)
 #     return ' '.join((fstr.strip()).split());
 
+# # TESTS
 # print(song_decoder('WUBWEWUBAREWUBWUBTHEWUBCHAMPIONSWUBMYWUBFRIENDWUB'))
 # print(song_decoder("WUBFORGIVEWUBMEWUBFATHERWUB"))
 # print(song_decoder("WUBJESSEWUBBADWUBBOYWUBJUSTWUBCOMEWUBLOOKWUBATWUBWHATWUBYOURWUBBROTHERWUBDIDWUB"))
@@ -133,7 +134,23 @@
 #     else:
 #         return False
 
+# # TESTS
 # print(is_valid_walk(['n','s','n','s','n','s','n','s','n','s']))
 # print(is_valid_walk(['w', 'e', 'w', 'e', 'w', 'e', 'w', 'e', 'w', 'e', 'w', 'e']))
 # print(is_valid_walk('w'))
 # print(is_valid_walk(['n', 'n', 'n', 's', 'n', 's', 'n', 's', 'n', 's']))
+
+# Challenge Nine: Return the number (count) of vowels in the given string. We will consider a, e, i, o, u as vowels for this Kata(but not y). The input string will only consist of lower case letters and / or spaces.
+# Challenge Source: https://www.codewars.com/kata/54ff3102c1bad923760001f3/python
+
+# def get_count(input_str):
+#     num_vowels = 0
+#     for char in input_str:
+#         if char in "aeiouAEIOU":
+#             num_vowels += 1
+#     return num_vowels
+
+# # TESTS
+# print(get_count("vowel"));
+# print(get_count('cover'));
+# print(get_count('cranium'));
