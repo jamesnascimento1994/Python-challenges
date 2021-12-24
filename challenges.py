@@ -154,3 +154,28 @@
 # print(get_count("vowel"));
 # print(get_count('cover'));
 # print(get_count('cranium'));
+
+# Challenge Ten: Usually when you buy something, you're asked whether your credit card number, phone number or answer to your most secret question is still correct. However, since someone could look over your shoulder, you don't want that shown on your screen. Instead, we mask it. Your task is to write a function maskify, which changes all but the last four characters into '#'.
+# Challenge Source: https://www.codewars.com/kata/5412509bd436bd33920011bc
+
+# return masked string
+def maskify(cc):
+    if len(cc) > 4:
+        reversedCC = cc[::-1]
+        newString = ''
+        for i in range(0, len(reversedCC)):
+            if i < 4:
+                newString += reversedCC[i]
+            else:
+                newString += '#'
+        return newString[::-1]
+    else:
+        return cc;
+
+# TESTS
+print(maskify("4556364607935616"))
+print(maskify("64607935616"))
+print(maskify("1"))
+print(maskify(""))
+print(maskify("Skippy"))
+print(maskify("Nananananananananananananananana Batman!"))
