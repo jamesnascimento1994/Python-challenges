@@ -195,14 +195,39 @@
 # Challenge Twelve: In this kata you will create a function that takes a list of non-negative integers and strings and returns a new list with the strings filtered out.
 # Challenge Source: https://www.codewars.com/kata/53dbd5315a3c69eed20002dd
 
-def filter_list(l):
-    new_list = []
-    for x in l:
-        if type(x) == int:
-            new_list.append(x)
+# def filter_list(l):
+#     new_list = []
+#     for x in l:
+#         if type(x) == int:
+#             new_list.append(x)
     
-    return new_list
+#     return new_list
 
-print(filter_list([1,2,'a','b']))
-print(filter_list([1,'a','b',0,15]))
-print(filter_list([1,2,'aasf','1','123',123]))
+# # TESTS
+# print(filter_list([1,2,'a','b']))
+# print(filter_list([1,'a','b',0,15]))
+# print(filter_list([1,2,'aasf','1','123',123]))
+
+# Challenge Thirteen: In this kata you have to write a simple Morse code decoder. While the Morse code is now mostly superseded by voice and digital data communication channels, it still has its use in some applications around the world. The Morse code encodes every character as a sequence of "dots" and "dashes". For example, the letter A is coded as ·−, letter Q is coded as −−·−, and digit 1 is coded as ·−−−−. The Morse code is case-insensitive, traditionally capital letters are used. When the message is written in Morse code, a single space is used to separate the character codes and 3 spaces are used to separate words. For example, the message HEY JUDE in Morse code is ···· · −·−−   ·−−− ··− −·· ·. NOTE: Extra spaces before or after the code have no meaning and should be ignored. In addition to letters, digits and some punctuation, there are some special service codes, the most notorious of those is the international distress signal SOS (that was first issued by Titanic), that is coded as ···−−−···. These special codes are treated as single special characters, and usually are transmitted as separate words. Your task is to implement a function that would take the morse code as input and return a decoded human-readable string.
+# Challenge Source: https://www.codewars.com/kata/54b724efac3d5402db00065e
+# NOTE: MORSE_CODE on line 224 is exclusive to codewars. I'm not sure how to fix the error on VS code without having to create a giant array of every letter with its morse code.
+
+# def decode_morse(morse_code):
+#     # ToDo: Accept dots, dashes and spaces, return human-readable message
+#     word = morse_code.strip().split('   ')
+#     result_char = []
+    
+#     for i in word:
+#         character = i.split(' ')
+        
+#         for j in character:
+#             result_char.append(MORSE_CODE[j])
+            
+#         result_char.append(' ')
+        
+    
+#     result_word = ''.join(result_char).strip()
+#     return result_word
+
+#     # TESTS
+# print(decode_morse('.... . -.--   .--- ..- -.. .'))
