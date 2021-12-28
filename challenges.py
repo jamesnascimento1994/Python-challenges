@@ -231,3 +231,35 @@
 
 #     # TESTS
 # print(decode_morse('.... . -.--   .--- ..- -.. .'))
+
+# Challenge Thirteen: Write a function that will return the count of distinct case-insensitive alphabetic characters and numeric digits that occur more than once in the input string. The input string can be assumed to contain only alphabets (both uppercase and lowercase) and numeric digits.
+# Challenge Source: https://www.codewars.com/kata/54bf1c2cd5b56cc47f0007a1
+
+def duplicate_count(text):
+    # Your code goes here
+    lowercase_text = text.lower()
+    count = 0
+    dictionary = {}
+    
+    for i in range(0, len(lowercase_text)):
+        dictionary[lowercase_text[i]] = 0
+    
+    for key in dictionary:
+        for i in range(0, len(lowercase_text)):
+            if key == lowercase_text[i]:
+                dictionary[key] += 1
+    
+    for key in dictionary:
+        if dictionary[key] > 1:
+            count += 1
+    
+    return count
+
+# TESTS
+print(duplicate_count("abcde"))
+print(duplicate_count("aabbcde"))
+print(duplicate_count("aabBcde"))
+print(duplicate_count("indivisibility"))
+print(duplicate_count("Indivisibilities"))
+print(duplicate_count("aA11"))
+print(duplicate_count("ABBA"))
