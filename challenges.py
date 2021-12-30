@@ -268,17 +268,48 @@
 
 # Challenge Source: https://www.codewars.com/kata/5262119038c0985a5b00029f
 
-def is_prime(num):
-    if num <= 0 or num == 1:
-        return False
-    i = 2
-    while i <= num ** 0.5:
-        if num % i == 0:
-            return False
-        i += 1
-    return True
+# def is_prime(num):
+#     if num <= 0 or num == 1:
+#         return False
+#     i = 2
+#     while i <= num ** 0.5:
+#         if num % i == 0:
+#             return False
+#         i += 1
+#     return True
+
+# # TESTS
+# print(is_prime(1))
+# print(is_prime(2))
+# print(is_prime(-1))
+
+# Challenge Fifteen: Jaden Smith, the son of Will Smith, is the star of films such as The Karate Kid (2010) and After Earth (2013). Jaden is also known for some of his philosophy that he delivers via Twitter. When writing on Twitter, he is known for almost always capitalizing every word. For simplicity, you'll have to capitalize each word, check out how contractions are expected to be in the example below. Your task is to convert strings to how they would be written by Jaden Smith. The strings are actual quotes from Jaden Smith, but they are not capitalized in the same way he originally typed them.
+
+# Challenge Source: https://www.codewars.com/kata/5390bac347d09b7da40006f6
+
+# def to_jaden_case(string):
+#     return ' '.join([word.capitalize() for word in string.split()])
+
+# # TESTS
+# print(to_jaden_case("How can mirrors be real if our eyes aren't real"))
+
+# Challenge Sixteen: Move the first letter of each word to the end of it, then add "ay" to the end of the word. Leave punctuation marks untouched.
+
+# Challenge Source: https://www.codewars.com/kata/520b9d2ad5c005041100000f
+
+def pig_it(text):
+    #your code here
+    words = text.split(' ')
+    pig_sentence = ' '
+    
+    for word in words:
+        if word in '!.%&?':
+            pig_sentence += word
+        else:
+            pig_word = word[1:] + word[0] + 'ay'
+            pig_sentence += pig_word + ' '
+    return pig_sentence.strip()
 
 # TESTS
-print(is_prime(1))
-print(is_prime(2))
-print(is_prime(-1))
+print(pig_it('Pig latin is cool'))
+print(pig_it('Hello world !'))
