@@ -318,55 +318,73 @@
 
 # Challenge Source: https://www.codewars.com/kata/515bb423de843ea99400000a
 
-import math
-class PaginationHelper:
+# import math
+# class PaginationHelper:
 
-  # The constructor takes in an array of items and a integer indicating
-  # how many items fit within a single page
-    def __init__(self, collection, items_per_page):
-        self.collection = collection
-        self.items_per_page = items_per_page
+#   # The constructor takes in an array of items and a integer indicating
+#   # how many items fit within a single page
+#     def __init__(self, collection, items_per_page):
+#         self.collection = collection
+#         self.items_per_page = items_per_page
       
   
-  # returns the number of items within the entire collection
-    def item_count(self):
-        return len(self.collection)
+#   # returns the number of items within the entire collection
+#     def item_count(self):
+#         return len(self.collection)
      
-  # returns the number of pages
-    def page_count(self):
-        return int(math.ceil(1.0 * self.item_count() / self.items_per_page))
+#   # returns the number of pages
+#     def page_count(self):
+#         return int(math.ceil(1.0 * self.item_count() / self.items_per_page))
       
     
-  # returns the number of items on the current page. page_index is zero based
-  # this method should return -1 for page_index values that are out of range
-    def page_item_count(self,page_index):
-        items_per_page = self.items_per_page
-        if page_index >= self.page_count():
-            return -1
-        elif page_index == self.page_count() - 1:
-            return self.item_count() - self.items_per_page*page_index
-        else:
-            return self.items_per_page
+#   # returns the number of items on the current page. page_index is zero based
+#   # this method should return -1 for page_index values that are out of range
+#     def page_item_count(self,page_index):
+#         items_per_page = self.items_per_page
+#         if page_index >= self.page_count():
+#             return -1
+#         elif page_index == self.page_count() - 1:
+#             return self.item_count() - self.items_per_page*page_index
+#         else:
+#             return self.items_per_page
       
   
-  # determines what page an item is on. Zero based indexes.
-  # this method should return -1 for item_index values that are out of range
-    def page_index(self,item_index):
-        if item_index in range(self.item_count()):
-            return item_index//self.items_per_page
+#   # determines what page an item is on. Zero based indexes.
+#   # this method should return -1 for item_index values that are out of range
+#     def page_index(self,item_index):
+#         if item_index in range(self.item_count()):
+#             return item_index//self.items_per_page
         
-        return -1
+#         return -1
+
+# # TESTS
+# collection = range(1, 25)
+# collection = ['a','b','c','d','e','f']
+# helper = PaginationHelper(collection, 4)
+# print(helper.page_count())
+# print(helper.item_count())
+# print(helper.page_item_count(0))
+# print(helper.page_item_count(1))
+# print(helper.page_item_count(2))
+# print(helper.page_index(5))
+# print(helper.page_index(2))
+# print(helper.page_index(20))
+# print(helper.page_index(-1))
+
+# Challenge Eighteen: Pete likes to bake some cakes. He has some recipes and ingredients. Unfortunately he is not good in maths. Can you help him to find out, how many cakes he could bake considering his recipes? Write a function cakes(), which takes the recipe (object) and the available ingredients (also an object) and returns the maximum number of cakes Pete can bake (integer). For simplicity there are no units for the amounts (e.g. 1 lb of flour or 200 g of sugar are simply 1 or 200). Ingredients that are not present in the objects, can be considered as 0.
+
+# Challenge Source: https://www.codewars.com/kata/525c65e51bf619685c000059
+
+def cakes(recipe, available):
+    count = 0
+    l = [0]*len(recipe)
+    for required in recipe:
+        for avail_ing in available:
+            if required == avail_ing:
+                l[count]=available[required]//recipe[avail_ing]
+                count+=1
+    return min(l)
 
 # TESTS
-collection = range(1, 25)
-collection = ['a','b','c','d','e','f']
-helper = PaginationHelper(collection, 4)
-print(helper.page_count())
-print(helper.item_count())
-print(helper.page_item_count(0))
-print(helper.page_item_count(1))
-print(helper.page_item_count(2))
-print(helper.page_index(5))
-print(helper.page_index(2))
-print(helper.page_index(20))
-print(helper.page_index(-1))
+print(cakes({"flour": 500, "sugar": 200, "eggs": 1}, {"flour": 1200, "sugar": 1200, "eggs": 5, "milk": 200}))
+print(cakes({"apples": 3, "flour": 300, "sugar": 150, "milk": 100, "oil": 100}, {"sugar": 500, "flour": 2000, "milk": 2000}))
