@@ -375,16 +375,58 @@
 
 # Challenge Source: https://www.codewars.com/kata/525c65e51bf619685c000059
 
-def cakes(recipe, available):
-    count = 0
-    l = [0]*len(recipe)
-    for required in recipe:
-        for avail_ing in available:
-            if required == avail_ing:
-                l[count]=available[required]//recipe[avail_ing]
-                count+=1
-    return min(l)
+# def cakes(recipe, available):
+#     count = 0
+#     l = [0]*len(recipe)
+#     for required in recipe:
+#         for avail_ing in available:
+#             if required == avail_ing:
+#                 l[count]=available[required]//recipe[avail_ing]
+#                 count+=1
+#     return min(l)
 
-# TESTS
-print(cakes({"flour": 500, "sugar": 200, "eggs": 1}, {"flour": 1200, "sugar": 1200, "eggs": 5, "milk": 200}))
-print(cakes({"apples": 3, "flour": 300, "sugar": 150, "milk": 100, "oil": 100}, {"sugar": 500, "flour": 2000, "milk": 2000}))
+# # TESTS
+# print(cakes({"flour": 500, "sugar": 200, "eggs": 1}, {"flour": 1200, "sugar": 1200, "eggs": 5, "milk": 200}))
+# print(cakes({"apples": 3, "flour": 300, "sugar": 150, "milk": 100, "oil": 100}, {"sugar": 500, "flour": 2000, "milk": 2000}))
+
+# Challenge Nineteen: Greed is a dice game played with five six-sided dice. Your mission, should you choose to accept it, is to score a throw according to these rules. You will always be given an array with five six-sided dice values. 
+# Three 1's => 1000 points
+#  Three 6's =>  600 points
+#  Three 5's =>  500 points
+#  Three 4's =>  400 points
+#  Three 3's =>  300 points
+#  Three 2's =>  200 points
+#  One   1   =>  100 points
+#  One   5   =>   50 point
+# A single die can only be counted once in each roll. For example, a given "5" can only count as part of a triplet (contributing to the 500 points) or as a single 50 points, but not both in the same roll.
+
+# Challenge Source: https://www.codewars.com/kata/5270d0d18625160ada0000e4
+
+def score(dice):
+    # your code here
+    from collections import Counter
+    points = {
+        1: 1000,
+        6: 600,
+        5: 500,
+        4: 400,
+        3: 300,
+        2: 200
+    }
+    dices = Counter(dice)
+    
+    total = 0
+    
+    for key,val in dices.items():
+        if val >= 3:
+            total += points[key] * (val // 3)
+        if key == 1:
+            total += 100 * (val % 3)
+        elif key == 5:
+            total += 50 * (val % 3)
+            
+    return total
+
+print(score([5, 1, 3, 4, 1]))
+print(score([1, 1, 1, 3, 1]))
+print(score([2, 4, 4, 5, 4]))
