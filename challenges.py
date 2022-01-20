@@ -436,36 +436,56 @@
 
 # Challenge Source: https://www.codewars.com/kata/5279f6fe5ab7f447890006a7
 
-def pick_peaks(arr):
-    #your code here
-    output = {"pos":[], "peaks": []}
+# def pick_peaks(arr):
+#     #your code here
+#     output = {"pos":[], "peaks": []}
     
-    if len(arr) == 0: return output
-    top_peak = arr[0]
-    top_pos = 0
+#     if len(arr) == 0: return output
+#     top_peak = arr[0]
+#     top_pos = 0
 
-    for i in range(0, len(arr)):
-        if arr[i] > arr[i-1]:
-            top_peak = arr[i]
-            top_pos = i;
-        elif arr[i] == arr[i-1]:
-            print("Plateau ", arr[i-1], " to ", arr[i])
-        elif arr[i] < arr[i-1]:
-            if top_pos > 0:
-                output["pos"].append(top_pos)
-                output["peaks"].append(top_peak)
-                top_pos = 0
+#     for i in range(0, len(arr)):
+#         if arr[i] > arr[i-1]:
+#             top_peak = arr[i]
+#             top_pos = i;
+#         elif arr[i] == arr[i-1]:
+#             print("Plateau ", arr[i-1], " to ", arr[i])
+#         elif arr[i] < arr[i-1]:
+#             if top_pos > 0:
+#                 output["pos"].append(top_pos)
+#                 output["peaks"].append(top_peak)
+#                 top_pos = 0
             
-    return output
+#     return output
+
+# # TESTS
+# print(pick_peaks([1,2,3,6,4,1,2,3,2,1]))
+# print(pick_peaks([3,2,3,6,4,1,2,3,2,1,2,3]))
+# print(pick_peaks([3,2,3,6,4,1,2,3,2,1,2,2,2,1]))
+# print(pick_peaks([2,1,3,1,2,2,2,2,1]))
+# print(pick_peaks([2,1,3,1,2,2,2,2]))
+# print(pick_peaks([2,1,3,2,2,2,2,5,6]))
+# print(pick_peaks([2,1,3,2,2,2,2,1]))
+# print(pick_peaks([1,2,5,4,3,2,3,6,4,1,2,3,3,4,5,3,2,1,2,3,5,5,4,3]))
+# print(pick_peaks([]))
+# print(pick_peaks([1,1,1,1]))
+
+# Challenge Twenty-One: Complete the solution so that it splits the string into pairs of two characters. If the string contains an odd number of characters then it should replace the missing second character of the final pair with an underscore ('_').
+
+# Challenge Source: https://www.codewars.com/kata/515de9ae9dcfc28eb6000001
+
+def solution(s):
+    pairs = []
+    pair = ''
+    for char in s:
+        pair += char
+        if len(pair) == 2:
+            pairs.append(pair)
+            pair = ''
+    if pair:
+        pairs.append(pair + '_')
+    return pairs
 
 # TESTS
-print(pick_peaks([1,2,3,6,4,1,2,3,2,1]))
-print(pick_peaks([3,2,3,6,4,1,2,3,2,1,2,3]))
-print(pick_peaks([3,2,3,6,4,1,2,3,2,1,2,2,2,1]))
-print(pick_peaks([2,1,3,1,2,2,2,2,1]))
-print(pick_peaks([2,1,3,1,2,2,2,2]))
-print(pick_peaks([2,1,3,2,2,2,2,5,6]))
-print(pick_peaks([2,1,3,2,2,2,2,1]))
-print(pick_peaks([1,2,5,4,3,2,3,6,4,1,2,3,3,4,5,3,2,1,2,3,5,5,4,3]))
-print(pick_peaks([]))
-print(pick_peaks([1,1,1,1]))
+print(solution('abc'))
+print(solution('abcdef'))
