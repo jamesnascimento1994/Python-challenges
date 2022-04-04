@@ -474,18 +474,35 @@
 
 # Challenge Source: https://www.codewars.com/kata/515de9ae9dcfc28eb6000001
 
-def solution(s):
-    pairs = []
-    pair = ''
-    for char in s:
-        pair += char
-        if len(pair) == 2:
-            pairs.append(pair)
-            pair = ''
-    if pair:
-        pairs.append(pair + '_')
-    return pairs
+# def solution(s):
+#     pairs = []
+#     pair = ''
+#     for char in s:
+#         pair += char
+#         if len(pair) == 2:
+#             pairs.append(pair)
+#             pair = ''
+#     if pair:
+#         pairs.append(pair + '_')
+#     return pairs
 
-# TESTS
-print(solution('abc'))
-print(solution('abcdef'))
+# # TESTS
+# print(solution('abc'))
+# print(solution('abcdef'))
+
+# Challenge Twenty-Two: Complete the method/function so that it converts dash/underscore delimited words into camel casing. The first word within the output should be capitalized only if the original word was capitalized (known as Upper Camel Case, also often referred to as Pascal case).
+
+# Challenge Source: https://www.codewars.com/kata/517abf86da9663f1d2000003
+
+def to_camel_case(text):
+    #your code here
+    text_list = [x for x in text]
+    if len(text_list) != 0:
+        for i in range(len(text_list)):
+            if text_list[i] in ('-', '_'):
+                text_list[i+1] = text_list[i+1].upper()
+    text_list = ''.join([i for i in text_list if i not in ('-', '_')])
+    return text_list
+
+print(to_camel_case("the-stealth-warrior"))
+print(to_camel_case("The_Stealth_Warrior"))
