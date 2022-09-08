@@ -494,15 +494,33 @@
 
 # Challenge Source: https://www.codewars.com/kata/517abf86da9663f1d2000003
 
-def to_camel_case(text):
-    #your code here
-    text_list = [x for x in text]
-    if len(text_list) != 0:
-        for i in range(len(text_list)):
-            if text_list[i] in ('-', '_'):
-                text_list[i+1] = text_list[i+1].upper()
-    text_list = ''.join([i for i in text_list if i not in ('-', '_')])
-    return text_list
+# def to_camel_case(text):
+#     #your code here
+#     text_list = [x for x in text]
+#     if len(text_list) != 0:
+#         for i in range(len(text_list)):
+#             if text_list[i] in ('-', '_'):
+#                 text_list[i+1] = text_list[i+1].upper()
+#     text_list = ''.join([i for i in text_list if i not in ('-', '_')])
+#     return text_list
 
-print(to_camel_case("the-stealth-warrior"))
-print(to_camel_case("The_Stealth_Warrior"))
+# print(to_camel_case("the-stealth-warrior"))
+# print(to_camel_case("The_Stealth_Warrior"))
+
+# Challenge Twenty-Two: When working with color values it can sometimes be useful to extract the individual red, green, and blue (RGB) component values for a color. Implement a function that meets these requirements: 
+# Accepts a case-insensitive hexadecimal color string as its parameter (ex. "#FF9933" or "#ff9933") 
+# Returns a Map<String, int> with the structure {r: 255, g: 153, b: 51} where r, g, and b range from 0 through 255 Note: your implementation does not need to support the shorthand form of hexadecimal notation (ie "#FFF")
+
+# Challenge Source: https://www.codewars.com/kata/5282b48bb70058e4c4000fa7
+
+def hex_string_to_RGB(hex_string): 
+    # your code here
+    hex_str = hex_string.lstrip('#')
+    rgb = tuple(int(hex_str[i:i+2], 16) for i in (0, 2, 4))
+    return {'r': rgb[0], 'g': rgb[1], 'b': rgb[2]}
+
+# TESTS
+print(hex_string_to_RGB("#FF9933"))
+print(hex_string_to_RGB("#beaded"))
+print(hex_string_to_RGB("#000000"))
+
