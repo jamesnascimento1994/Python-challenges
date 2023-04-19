@@ -513,14 +513,31 @@
 
 # Challenge Source: https://www.codewars.com/kata/5282b48bb70058e4c4000fa7
 
-def hex_string_to_RGB(hex_string): 
-    # your code here
-    hex_str = hex_string.lstrip('#')
-    rgb = tuple(int(hex_str[i:i+2], 16) for i in (0, 2, 4))
-    return {'r': rgb[0], 'g': rgb[1], 'b': rgb[2]}
+# def hex_string_to_RGB(hex_string): 
+#     # your code here
+#     hex_str = hex_string.lstrip('#')
+#     rgb = tuple(int(hex_str[i:i+2], 16) for i in (0, 2, 4))
+#     return {'r': rgb[0], 'g': rgb[1], 'b': rgb[2]}
+
+# # TESTS
+# print(hex_string_to_RGB("#FF9933"))
+# print(hex_string_to_RGB("#beaded"))
+# print(hex_string_to_RGB("#000000"))
+
+# Challenge Twenty-Three: If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23. Finish the solution so that it returns the sum of all the multiples of 3 or 5 below the number passed in. Additionally, if the number is negative, return 0 (for languages that do have them).
+# Challenge Source: https://www.codewars.com/kata/514b92a657cdc65150000006
+
+def solution(number):
+    sum_of_num = 0
+    if number <= 0:
+        return 0
+    else:
+        for i in range(1, number):
+            if i % 3 == 0 or i % 5 == 0:
+                sum_of_num += i
+        return sum_of_num
 
 # TESTS
-print(hex_string_to_RGB("#FF9933"))
-print(hex_string_to_RGB("#beaded"))
-print(hex_string_to_RGB("#000000"))
-
+print(solution(10))
+print(solution(27))
+print(solution(43))
