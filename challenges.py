@@ -565,8 +565,23 @@ def valid_braces(braces):
         return False
 
 # TESTS
-print(valid_braces("(){}[]"))
-print(valid_braces("([{}])"))
-print(valid_braces("(}"))
-print(valid_braces("[(])"))
-print(valid_braces("[({})](]"))
+# print(valid_braces("(){}[]"))
+# print(valid_braces("([{}])"))
+# print(valid_braces("(}"))
+# print(valid_braces("[(])"))
+# print(valid_braces("[({})](]"))
+
+# Challenge Twenty-Five:
+# Challenge Source:
+
+def triangular(n):
+    if n < 1:
+        return 0
+    else:
+        return int(n * (n + 1) // 2)
+
+# TESTS
+print(triangular(0))
+print(triangular(2))
+print(triangular(3))
+print(triangular(-10))
